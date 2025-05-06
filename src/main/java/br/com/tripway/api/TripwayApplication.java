@@ -3,6 +3,8 @@ package br.com.tripway.api;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import model.TipoPagamento;
+
 @SpringBootApplication
 public class TripwayApplication {
 

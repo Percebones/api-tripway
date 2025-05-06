@@ -4,9 +4,9 @@ public class Venda {
 	private int id_venda;
 	private float total_pago;
 	private int qtd_pessoa;
-	private char tipo_pagamento;
+	private TipoPagamento tipo_pagamento;
 
-	public Venda(int id_venda, float total_pago, int qtd_pessoa, char tipo_pagamento) {
+	public Venda(int id_venda, float total_pago, int qtd_pessoa, TipoPagamento tipo_pagamento) {
 		super();
 		this.id_venda = id_venda;
 		this.total_pago = total_pago;
@@ -38,11 +38,11 @@ public class Venda {
 		this.qtd_pessoa = qtd_pessoa;
 	}
 
-	public char getTipo_pagamento() {
+	public TipoPagamento getTipo_pagamento() {
 		return tipo_pagamento;
 	}
 
-	public void setTipo_pagamento(char tipo_pagamento) {
+	public void setTipo_pagamento(TipoPagamento tipo_pagamento) {
 		this.tipo_pagamento = tipo_pagamento;
 	}
 
