@@ -3,7 +3,7 @@ package service;
 import dao.DAO;
 import model.Pacote;
 
-public class ServicePacote extends DAO {
+public abstract class ServicePacote  {
 
 	
 	

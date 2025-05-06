@@ -3,7 +3,7 @@ package service;
 import dao.DAO;
 import model.Corretor;
 
-public class ServiceCorretor extends DAO {
+public abstract class ServiceCorretor  {
 
 	
 	void cadastroCorretor(Corretor corretor) {

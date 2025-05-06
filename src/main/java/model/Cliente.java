@@ -2,15 +2,38 @@ package model;
 
 import java.sql.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+@Entity
+@Table(name = "cliente")
 public class Cliente {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_cliente;
+	
+	@Column(name = "data_nascimento", nullable = false)
 	private Date data_nascimento;
+	
+	@Column(unique = true, nullable = false, length = 11)
 	private int cpf;
+	
+	@Column(nullable = false)
 	private String nome;
+	
+	@Column(length = 15, nullable = false)
 	private String phone;
+	
+	@Column(nullable = false)
 	private char sexo;
+	
+	@Column(length = 100,  nullable = false)
 	private String email;
 
+	public Cliente() {}
 	public Cliente(int id_cliente, Date data_nascimento, int cpf, String nome, String phone, char sexo, String email) {
 		super();
 		this.id_cliente = id_cliente;

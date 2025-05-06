@@ -2,6 +2,6 @@ package service;
 
 import dao.DAO;
 
-public abstract class ServiceVenda extends DAO{
+public abstract class ServiceVenda {
 
 }
