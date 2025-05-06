@@ -1,5 +1,7 @@
 package service;
 
-public class ServiceCompra {
+import dao.DAO;
+
+public class ServiceCompra extends DAO {
 
 }
