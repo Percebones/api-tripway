@@ -38,7 +38,7 @@ public abstract class DAOGenerico<Entidade> implements DAO<Entidade> {
 		Entidade entidade = entityManager.find(getEntityClass(), id);
 		return Optional.ofNullable(entidade);
 	}
-	
+
 	protected abstract Object getId(Entidade entidade);
 
 }

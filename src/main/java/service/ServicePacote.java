@@ -1,22 +1,25 @@
 package service;
 
+import dao.PacoteDAO;
+import model.Compra;
 import model.Pacote;
 
-public abstract class ServicePacote  {
+public abstract class ServicePacote extends PacoteDAO {
 
-	
-	
-	void criarPacote(Pacote pacote) {
-		
+	void cadastroPacote(Pacote pacote) {
+		save(pacote);
 	}
-	
+
 	void updatePacote(Pacote pacote) {
-		
+		update(pacote);
 	}
-	
+
 	void deletePacote(Pacote pacote) {
-		
+		delete(pacote);
 	}
-	
-	
+
+	void gteById(Pacote pacote) {
+		findById(pacote);
+	}
+
 }

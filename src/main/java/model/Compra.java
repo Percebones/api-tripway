@@ -1,20 +1,30 @@
 package model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "compra")
 public class Compra {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_compra;
-	@Column
+
+	@Column(nullable = false)
 	private int qtd_pessoa;
-	@Column
+
+	@Column(nullable = false)
 	private TipoPagamento tipo_pagamento;
-	@Column
+
+	@Column(nullable = false)
 	private float total_pago;
+
+	public Compra() {
+	}
 
 	public Compra(int id_compra, int qtd_pessoa, TipoPagamento tipo_pagamento, float total_pago) {
 		super();

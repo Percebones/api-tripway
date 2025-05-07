@@ -1,6 +1,6 @@
 package model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,33 +8,37 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
 @Entity
 @Table(name = "cliente")
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_cliente;
-	
+
 	@Column(name = "data_nascimento", nullable = false)
-	private Date data_nascimento;
-	
-	@Column(unique = true, nullable = false, length = 11)
-	private int cpf;
-	
+	private LocalDate data_nascimento;
+
+	@Column(unique = true, nullable = false)
+	private String cpf;
+
 	@Column(nullable = false)
 	private String nome;
-	
+
 	@Column(length = 15, nullable = false)
 	private String phone;
-	
-	@Column(nullable = false)
+
+	@Column(length = 1, nullable = false)
 	private char sexo;
-	
-	@Column(length = 100,  nullable = false)
+
+	@Column(length = 100, nullable = false)
 	private String email;
 
-	public Cliente() {}
-	public Cliente(int id_cliente, Date data_nascimento, int cpf, String nome, String phone, char sexo, String email) {
+	public Cliente() {
+	}
+
+	public Cliente(int id_cliente, LocalDate data_nascimento, String cpf, String nome, String phone, char sexo,
+			String email) {
 		super();
 		this.id_cliente = id_cliente;
 		this.data_nascimento = data_nascimento;
@@ -53,19 +57,19 @@ public class Cliente {
 		this.id_cliente = id_cliente;
 	}
 
-	public Date getData_nascimento() {
+	public LocalDate getData_nascimento() {
 		return data_nascimento;
 	}
 
-	public void setData_nascimento(Date data_nascimento) {
+	public void setData_nascimento(LocalDate data_nascimento) {
 		this.data_nascimento = data_nascimento;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

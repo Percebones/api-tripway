@@ -2,12 +2,6 @@ package dao;
 
 import model.Cliente;
 
-import java.util.Optional;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-
 public class ClienteDAO extends DAOGenerico<Cliente> {
 
 	@Override
