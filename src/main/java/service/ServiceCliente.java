@@ -1,6 +1,5 @@
 package service;
 
-import dao.DAO;
 import model.Cliente;
 
 public abstract class ServiceCliente  {

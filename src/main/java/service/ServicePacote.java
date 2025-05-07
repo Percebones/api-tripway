@@ -1,6 +1,5 @@
 package service;
 
-import dao.DAO;
 import model.Pacote;
 
 public abstract class ServicePacote  {

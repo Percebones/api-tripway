@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.Optional;
+
 public interface DAO<Entidade> {
 	public Class<Entidade> getEntityClass();
 
@@ -9,6 +11,6 @@ public interface DAO<Entidade> {
 
 	void delete(Entidade entidade);
 
-	Entidade findById(Entidade entidade);
+	Optional<Entidade> findById(Object id);
 
 }
