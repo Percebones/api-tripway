@@ -1,9 +1,19 @@
 package model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 public class Compra {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_compra;
+	@Column
 	private int qtd_pessoa;
+	@Column
 	private TipoPagamento tipo_pagamento;
+	@Column
 	private float total_pago;
 
 	public Compra(int id_compra, int qtd_pessoa, TipoPagamento tipo_pagamento, float total_pago) {

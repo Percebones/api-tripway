@@ -2,14 +2,28 @@ package model;
 
 import java.sql.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 public class Pacote {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_pacote;
+	@Column
 	private String nome_pacote;
+	@Column
 	private float preco;
+	@Column
 	private Date data;
+	@Column
 	private String destino;
+	@Column
 	private String descricao;
+	@Column
 	private Date checkIn;
+	@Column
 	private int qtd_dias;
 
 	public Pacote(int id_pacote, String nome_pacote, float preco, Date data, String destino, String descricao,
