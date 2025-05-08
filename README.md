@@ -3,6 +3,9 @@
 API REST desenvolvida com **Spring Boot** para um sistema de **compra de pacotes de viagens**. Essa API permite o cadastro de clientes, gerenciamento de pacotes turísticos, registro de compras e tipos de pagamento.
 
 ---
+![Java](https://img.shields.io/badge/Java-17-blue)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.5-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 ## 🛠️ Tecnologias Utilizadas
 
