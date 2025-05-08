@@ -33,7 +33,6 @@ API REST desenvolvida com **Spring Boot** para um sistema de **compra de pacotes
 - Java 17 instalado
 - MySQL rodando
 - IDE (Eclipse, IntelliJ, VSCode)
-- Postman (para testar os endpoints)
 
 ### 2. Configurar o `application.properties`
 
