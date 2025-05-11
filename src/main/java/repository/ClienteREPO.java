@@ -1,8 +1,8 @@
-package dao;
+package repository;
 
 import model.Cliente;
 
-public class ClienteDAO extends DAOGenerico<Cliente> {
+public class ClienteREPO extends REPOGenerico<Cliente> {
 
 	@Override
 	public Class<Cliente> getEntityClass() {

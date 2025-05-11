@@ -1,5 +1,8 @@
 package controler;
 
-public class ClienteControler {
+import org.springframework.beans.factory.annotation.Autowired;
 
+public class ClienteControler {
+	@Autowired
+	private ClienteControler clienteControler;
 }

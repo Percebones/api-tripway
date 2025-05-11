@@ -1,8 +1,8 @@
-package dao;
+package repository;
 
 import model.Compra;
 
-public class CompraDAO extends DAOGenerico<Compra> {
+public class CompraREPO extends REPOGenerico<Compra> {
 
 	@Override
 	public Class<Compra> getEntityClass() {

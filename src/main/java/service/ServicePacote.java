@@ -1,25 +1,38 @@
 package service;
 
-import dao.PacoteDAO;
-import model.Compra;
+import java.time.LocalDate;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import model.Pacote;
+import repository.PacoteREPO;
 
-public abstract class ServicePacote extends PacoteDAO {
+@Service
+public class ServicePacote {
 
-	void cadastroPacote(Pacote pacote) {
-		save(pacote);
+	@Autowired
+	private PacoteREPO pacoteREPO;
+
+	public Pacote criarPacote(String nome_pacote, float preco, LocalDate data_partida, LocalDate data_volta,
+			String destino, String descricao, LocalDate checkIn, int qtd_dias) {
+		Pacote pacote = new Pacote(nome_pacote, preco, data_partida, data_volta, destino, descricao, checkIn, qtd_dias);
+		return cadastroPacote(pacote);
+
 	}
 
-	void updatePacote(Pacote pacote) {
-		update(pacote);
+	public Pacote cadastroPacote(Pacote pacote) {
+		pacoteREPO.save(pacote);
+		return pacote;
 	}
 
-	void deletePacote(Pacote pacote) {
-		delete(pacote);
+	public void deletePacote(Pacote pacote) {
+		pacoteREPO.delete(pacote);
 	}
 
-	void gteById(Pacote pacote) {
-		findById(pacote);
+	public Optional<Pacote> getById(int id) {
+		return pacoteREPO.findById(id);
 	}
 
 }

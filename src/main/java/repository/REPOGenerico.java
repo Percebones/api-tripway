@@ -1,11 +1,11 @@
-package dao;
+package repository;
 
 import java.util.Optional;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
-public abstract class DAOGenerico<Entidade> implements DAO<Entidade> {
+public abstract class REPOGenerico<Entidade> implements REPO<Entidade> {
 
 	@PersistenceContext
 	protected EntityManager entityManager;
@@ -21,13 +21,9 @@ public abstract class DAOGenerico<Entidade> implements DAO<Entidade> {
 	}
 
 	@Override
-	public void update(Entidade entidade) {
-		entityManager.merge(entidade);
-	}
-
-	@Override
 	public void delete(Entidade entidade) {
-		Entidade entidadeToRemove = entityManager.find(getEntityClass(), getId(entidade));
+		Object id = getId(entidade);
+		Entidade entidadeToRemove = entityManager.find(getEntityClass(), id);
 		if (entidadeToRemove != null) {
 			entityManager.remove(entidadeToRemove);
 		}

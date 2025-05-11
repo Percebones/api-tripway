@@ -43,10 +43,9 @@ public class Pacote {
 	public Pacote() {
 	}
 
-	public Pacote(int id_pacote, String nome_pacote, float preco, LocalDate data_partida, LocalDate data_volta,
-			String destino, String descricao, LocalDate checkIn, int qtd_dias) {
+	public Pacote(String nome_pacote, float preco, LocalDate data_partida, LocalDate data_volta, String destino,
+			String descricao, LocalDate checkIn, int qtd_dias) {
 		super();
-		this.id_pacote = id_pacote;
 		this.nome_pacote = nome_pacote;
 		this.preco = preco;
 		this.data_partida = data_partida;

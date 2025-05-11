@@ -1,8 +1,8 @@
-package dao;
+package repository;
 
 import model.Pacote;
 
-public class PacoteDAO extends DAOGenerico<Pacote> {
+public class PacoteREPO extends REPOGenerico<Pacote> {
 
 	@Override
 	public Class<Pacote> getEntityClass() {
@@ -13,5 +13,7 @@ public class PacoteDAO extends DAOGenerico<Pacote> {
 	protected Object getId(Pacote pacote) {
 		return pacote.getId_pacote();
 	}
+	
+	
 
 }

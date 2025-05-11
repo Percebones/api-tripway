@@ -37,10 +37,8 @@ public class Cliente {
 	public Cliente() {
 	}
 
-	public Cliente(int id_cliente, LocalDate data_nascimento, String cpf, String nome, String phone, char sexo,
-			String email) {
+	public Cliente(LocalDate data_nascimento, String cpf, String nome, String phone, char sexo, String email) {
 		super();
-		this.id_cliente = id_cliente;
 		this.data_nascimento = data_nascimento;
 		this.cpf = cpf;
 		this.nome = nome;

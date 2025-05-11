@@ -23,15 +23,23 @@ public class Compra {
 	@Column(nullable = false)
 	private float total_pago;
 
+	@Column(nullable = false)
+	private Cliente cliente;
+
+	@Column(nullable = false)
+	private Pacote pacote;
+
 	public Compra() {
 	}
 
-	public Compra(int id_compra, int qtd_pessoa, TipoPagamento tipo_pagamento, float total_pago) {
+	public Compra(int qtd_pessoa, TipoPagamento tipo_pagamento, float total_pago, Cliente cliente,
+			Pacote pacote) {
 		super();
-		this.id_compra = id_compra;
 		this.qtd_pessoa = qtd_pessoa;
 		this.tipo_pagamento = tipo_pagamento;
 		this.total_pago = total_pago;
+		this.cliente = cliente;
+		this.pacote = pacote;
 	}
 
 	public int getId_compra() {
@@ -64,6 +72,22 @@ public class Compra {
 
 	public void setTotal_pago(float total_pago) {
 		this.total_pago = total_pago;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Pacote getPacote() {
+		return pacote;
+	}
+
+	public void setPacote(Pacote pacote) {
+		this.pacote = pacote;
 	}
 
 }

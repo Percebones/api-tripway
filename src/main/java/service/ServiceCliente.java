@@ -1,23 +1,37 @@
 package service;
 
+import java.time.LocalDate;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import model.Cliente;
-import dao.ClienteDAO;
+import repository.ClienteREPO;
 
-public abstract class ServiceCliente extends ClienteDAO {
+@Service
+public class ServiceCliente {
 
-	void cadastroCliente(Cliente cliente) {
-		save(cliente);
+	@Autowired
+	private ClienteREPO clienteRepo;
+
+	public Cliente criarCliente(LocalDate data_nascimento, String cpf, String nome, String phone, char sexo,
+			String email) throws Exception {
+		Cliente cliente = new Cliente(data_nascimento, cpf, nome, phone, sexo, email);
+		return cadastroCliente(cliente);
+
 	}
 
-	void updateCliente(Cliente cliente) {
-		update(cliente);
+	public Cliente cadastroCliente(Cliente cliente) {
+		clienteRepo.save(cliente);
+		return cliente;
 	}
 
-	void deleteCliente(Cliente cliente) {
-		delete(cliente);
+	public void deleteCliente(Cliente cliente) {
+		clienteRepo.delete(cliente);
 	}
 
-	void gteById(Cliente cliente) {
-		findById(cliente);
+	public Optional<Cliente> getById(int id) {
+		return clienteRepo.findById(id);
 	}
 }
