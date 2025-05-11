@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import exeptions.CompraExeptions;
 import model.Cliente;
 import model.Compra;
 import model.Pacote;
