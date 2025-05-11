@@ -1,7 +1,9 @@
 package repository;
 
-import model.Cliente;
+import org.springframework.stereotype.Repository;
 
+import model.Cliente;
+@Repository
 public class ClienteREPO extends REPOGenerico<Cliente> {
 
 	@Override

@@ -1,7 +1,9 @@
 package repository;
 
-import model.Compra;
+import org.springframework.stereotype.Repository;
 
+import model.Compra;
+@Repository
 public class CompraREPO extends REPOGenerico<Compra> {
 
 	@Override

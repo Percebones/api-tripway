@@ -1,5 +1,7 @@
 package service;
 
+import java.awt.Image;
+import java.sql.Blob;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -17,7 +19,7 @@ public class ServicePacote {
 	private PacoteREPO pacoteREPO;
 
 	public Pacote criarPacote(String nome_pacote, float preco, LocalDate data_partida, LocalDate data_volta,
-			String destino, String descricao, LocalDate checkIn, int qtd_dias) throws PacoteExeptions {
+			String destino, String descricao, LocalDate checkIn, int qtd_dias,Blob imagem_pacote) throws PacoteExeptions {
 		if (data_partida.isAfter(data_volta)) {
 			throw new PacoteExeptions("Data de partida precisa ser antes da data da volta");
 		}
@@ -27,7 +29,7 @@ public class ServicePacote {
 		if (destino == null || destino.isEmpty()) {
 			throw new PacoteExeptions("O destino não pode ser vazio.");
 		}
-		Pacote pacote = new Pacote(nome_pacote, preco, data_partida, data_volta, destino, descricao, checkIn, qtd_dias);
+		Pacote pacote = new Pacote(nome_pacote, preco, data_partida, data_volta, destino, descricao, checkIn, qtd_dias,imagem_pacote);
 		return cadastroPacote(pacote);
 	}
 

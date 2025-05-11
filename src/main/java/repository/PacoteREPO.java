@@ -1,7 +1,9 @@
 package repository;
 
-import model.Pacote;
+import org.springframework.stereotype.Repository;
 
+import model.Pacote;
+@Repository
 public class PacoteREPO extends REPOGenerico<Pacote> {
 
 	@Override

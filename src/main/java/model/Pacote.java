@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Image;
+import java.sql.Blob;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
@@ -39,12 +41,16 @@ public class Pacote {
 
 	@Column(name = "qtd_dias", nullable = false)
 	private int qtd_dias;
+	
+	@Column(name = "imagem_pacote", nullable = false)
+	Blob imagem_pacote;
+	
 
 	public Pacote() {
 	}
 
 	public Pacote(String nome_pacote, float preco, LocalDate data_partida, LocalDate data_volta, String destino,
-			String descricao, LocalDate checkIn, int qtd_dias) {
+			String descricao, LocalDate checkIn, int qtd_dias, Blob imagem_pacote) {
 		super();
 		this.nome_pacote = nome_pacote;
 		this.preco = preco;
@@ -54,6 +60,7 @@ public class Pacote {
 		this.descricao = descricao;
 		this.checkIn = checkIn;
 		this.qtd_dias = qtd_dias;
+		this.imagem_pacote = imagem_pacote;
 	}
 
 	public int getId_pacote() {
@@ -127,5 +134,15 @@ public class Pacote {
 	public void setQtd_dias(int qtd_dias) {
 		this.qtd_dias = qtd_dias;
 	}
+
+	public Blob getImagem_pacote() {
+		return imagem_pacote;
+	}
+
+	public void setImagem_pacote(Blob imagem_pacote) {
+		this.imagem_pacote = imagem_pacote;
+	}
+	
+	
 
 }
