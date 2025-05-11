@@ -18,9 +18,9 @@ public class ServiceCompra {
 	@Autowired
 	private CompraREPO compraREPO;
 
-	public Compra efetuarCompra(int qtd_pessoa, TipoPagamento tipo_pagamento, float total_pago, int id_cliente,
-			int id_pacote) {
-		Compra compra = new Compra(qtd_pessoa, tipo_pagamento, total_pago, id_cliente, id_pacote);
+	public Compra efetuarCompra(int qtd_pessoa, TipoPagamento tipo_pagamento, float total_pago, Cliente cliente,
+			Pacote pacote) {
+		Compra compra = new Compra(qtd_pessoa, tipo_pagamento, total_pago, cliente, pacote);
 		return cadastroCompra(compra);
 	}
 

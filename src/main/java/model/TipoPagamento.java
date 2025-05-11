@@ -1,9 +1,27 @@
 package model;
 
-public enum TipoPagamento {
-	Pix(1), Credito(2), Debito(3), Boleto(4);
+import exeptions.TipoPagamentoExeptions;
 
-	TipoPagamento(int i) {
+public enum TipoPagamento {
+	Pix(0), Credito(1), Debito(2), Boleto(3);
+
+	private final int codigo;
+
+	TipoPagamento(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public static TipoPagamento porCodigo(int codigo) throws TipoPagamentoExeptions {
+		for (TipoPagamento tipo : TipoPagamento.values()) {
+			if (tipo.getCodigo() == codigo) {
+				return tipo;
+			}
+		}
+		throw new TipoPagamentoExeptions("Codigo do Tipo pagamento invalido");
 	}
 
 }

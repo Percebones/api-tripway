@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,22 +25,24 @@ public class Compra {
 	@Column(nullable = false)
 	private float total_pago;
 
-	@Column(name = "id_cliente", nullable = false)
-	private int id_cliente;
+	@ManyToOne
+	@JoinColumn(name = "id_cliente", nullable = false)
+	private Cliente cliente;
 
-	@Column(name = "id_pacote", nullable = false)
-	private int id_pacote;
+	@ManyToOne
+	@JoinColumn(name = "id_pacote", nullable = false)
+	private Pacote pacote;
 
 	public Compra() {
 	}
 
-	public Compra(int qtd_pessoa, TipoPagamento tipo_pagamento, float total_pago, int id_cliente, int id_pacote) {
+	public Compra(int qtd_pessoa, TipoPagamento tipo_pagamento, float total_pago, Cliente cliente, Pacote pacote) {
 		super();
 		this.qtd_pessoa = qtd_pessoa;
 		this.tipo_pagamento = tipo_pagamento;
 		this.total_pago = total_pago;
-		this.id_cliente = id_cliente;
-		this.id_pacote = id_pacote;
+		this.cliente = cliente;
+		this.pacote = pacote;
 	}
 
 	public int getId_compra() {
@@ -73,22 +77,23 @@ public class Compra {
 		this.total_pago = total_pago;
 	}
 
-	public int getId_cliente() {
-		return id_cliente;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setId_cliente(int id_cliente) {
-		this.id_cliente = id_cliente;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
-	public int getId_pacote() {
-		return id_pacote;
+	public Pacote getPacote() {
+		return pacote;
 	}
 
-	public void setId_pacote(int id_pacote) {
-		this.id_pacote = id_pacote;
+	public void setPacote(Pacote pacote) {
+		this.pacote = pacote;
 	}
 
+	
 	
 	
 

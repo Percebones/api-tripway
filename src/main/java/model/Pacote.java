@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.Image;
 import java.sql.Blob;
 import java.time.LocalDate;
 
