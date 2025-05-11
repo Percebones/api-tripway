@@ -24,7 +24,7 @@ public class ServicePacote {
 		if (preco < 0) {
 			throw new PacoteExeptions("Preco do pacote nao pode ser negativo");
 		}
-		if (destino.isEmpty()) {
+		if (destino == null || destino.isEmpty()) {
 			throw new PacoteExeptions("O destino não pode ser vazio.");
 		}
 		Pacote pacote = new Pacote(nome_pacote, preco, data_partida, data_volta, destino, descricao, checkIn, qtd_dias);
