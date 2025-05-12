@@ -17,7 +17,7 @@ import br.com.tripway.service.ServiceCliente;
 
 @Controller
 @RequestMapping(path = "/cliente")
-public class ClienteControler {
+public class ClienteController {
 
 	@Autowired
 	private ServiceCliente serviceCliente;

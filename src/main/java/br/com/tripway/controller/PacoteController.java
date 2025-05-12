@@ -17,7 +17,7 @@ import br.com.tripway.service.ServicePacote;
 
 @Controller
 @RequestMapping(path = "/pacote")
-public class PacoteControler {
+public class PacoteController {
 
 	@Autowired
 	private ServicePacote servicePacote;

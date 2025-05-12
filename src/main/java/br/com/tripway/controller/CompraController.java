@@ -16,7 +16,7 @@ import br.com.tripway.service.ServiceCompra;
 
 @Controller
 @RequestMapping(path = "/compra")
-public class CompraControler {
+public class CompraController {
 
 	@Autowired
 	private ServiceCompra serviceCompra;
