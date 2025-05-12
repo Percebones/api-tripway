@@ -1,19 +1,15 @@
 package repository;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Repository;
 
 import model.Cliente;
+
 @Repository
-public class ClienteREPO extends REPOGenerico<Cliente> {
+public interface ClienteREPO extends REPOGenerico<Cliente> {
 
-	@Override
-	public Class<Cliente> getEntityClass() {
-		return Cliente.class;
-	}
+	Optional<Cliente> findById(int id);
 
-	@Override
-	protected Object getId(Cliente cliente) {
-		return cliente.getId_cliente();
-	}
-
+	boolean existsByCpf(String cpf);
 }

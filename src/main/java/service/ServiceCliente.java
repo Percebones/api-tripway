@@ -5,8 +5,10 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.yaml.snakeyaml.tokens.Token.ID;
 
 import model.Cliente;
+import model.Compra;
 import repository.ClienteREPO;
 
 @Service
@@ -22,16 +24,22 @@ public class ServiceCliente {
 
 	}
 
-	public Cliente cadastroCliente(Cliente cliente) {
-		clienteRepo.save(cliente);
-		return cliente;
+	public Cliente cadastroCliente(Cliente cliente) throws Exception {
+		if (clienteRepo.existsByCpf(cliente.getCpf())) {
+			throw new Exception("Cliente com CPF já cadastrado.");
+		}
+		return clienteRepo.save(cliente);
 	}
 
 	public void deleteCliente(Cliente cliente) {
 		clienteRepo.delete(cliente);
 	}
 
-	public Optional<Cliente> getById(int id) {
+	public Iterable<Cliente> getAllClientes() {
+		return clienteRepo.findAll();
+	}
+
+	public Optional<Cliente> getClientePorId(ID id) {
 		return clienteRepo.findById(id);
 	}
 }

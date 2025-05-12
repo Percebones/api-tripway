@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 public class Compra {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_compra;
+	private Integer id_compra;
 
 	@Column(nullable = false)
 	private int qtd_pessoa;

@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_cliente;
+	private Integer id_cliente;
 
 	@Column(name = "data_nascimento", nullable = false)
 	private LocalDate data_nascimento;

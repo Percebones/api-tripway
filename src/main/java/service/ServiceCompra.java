@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.yaml.snakeyaml.tokens.Token.ID;
 
 import exeptions.CompraExeptions;
 import model.Cliente;
@@ -25,15 +26,18 @@ public class ServiceCompra {
 	}
 
 	public Compra cadastroCompra(Compra compra) {
-		compraREPO.save(compra);
-		return compra;
+		return compraREPO.save(compra);
 	}
 
 	public void deleteCompra(Compra compra) {
 		compraREPO.delete(compra);
 	}
 
-	public Optional<Compra> getById(int id) {
+	public Iterable<Compra> getAllCompras() {
+		return compraREPO.findAll();
+	}
+
+	public Optional<Compra> getCompraPorId(ID id) {
 		return compraREPO.findById(id);
 	}
 
