@@ -2,11 +2,7 @@ package service;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.yaml.snakeyaml.tokens.Token.ID;
-
-import exeptions.CompraExeptions;
 import model.Cliente;
 import model.Compra;
 import model.Pacote;
@@ -16,8 +12,11 @@ import repository.CompraREPO;
 @Service
 public class ServiceCompra {
 
-	@Autowired
-	private CompraREPO compraREPO;
+	private final CompraREPO compraREPO;
+
+	public ServiceCompra(CompraREPO compraREPO) {
+		this.compraREPO = compraREPO;
+	}
 
 	public Compra efetuarCompra(int qtd_pessoa, TipoPagamento tipo_pagamento, float total_pago, Cliente cliente,
 			Pacote pacote) {
@@ -37,7 +36,7 @@ public class ServiceCompra {
 		return compraREPO.findAll();
 	}
 
-	public Optional<Compra> getCompraPorId(ID id) {
+	public Optional<Compra> getCompraPorId(Long id) {
 		return compraREPO.findById(id);
 	}
 

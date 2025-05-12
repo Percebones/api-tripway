@@ -3,9 +3,7 @@ package service;
 import java.time.LocalDate;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.yaml.snakeyaml.tokens.Token.ID;
 
 import exeptions.ClienteExeptions;
 import model.Cliente;
@@ -14,15 +12,23 @@ import repository.ClienteREPO;
 @Service
 public class ServiceCliente {
 
-	@Autowired
-	private ClienteREPO clienteRepo;
+	private final ClienteREPO clienteRepo;
+
+	public ServiceCliente(ClienteREPO clienteRepo) {
+		this.clienteRepo = clienteRepo;
+	}
 
 	public Cliente criarCliente(LocalDate data_nascimento, String cpf, String nome, String phone, char sexo,
 			String email) throws ClienteExeptions {
 		try {
-			Cliente cliente = new Cliente(data_nascimento, cpf, nome, phone, sexo, email);
+			Cliente cliente = new Cliente();
+			cliente.setNome(nome);
+			cliente.setCpf(cpf);
+			cliente.setData_nascimento(data_nascimento);
+			cliente.setEmail(email);
+			cliente.setSexo(sexo);
 			return cadastroCliente(cliente);
-		} catch (ClienteExeptions e) {
+		} catch (Exception e) {
 			throw new ClienteExeptions("Tipo de dado invalido ou fora de ordem");
 		}
 
@@ -47,7 +53,7 @@ public class ServiceCliente {
 		return clienteRepo.findAll();
 	}
 
-	public Optional<Cliente> getClientePorId(ID id) {
+	public Optional<Cliente> getClientePorId(Integer id) {
 		return clienteRepo.findById(id);
 	}
 }

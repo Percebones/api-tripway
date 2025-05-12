@@ -3,22 +3,19 @@ package service;
 import java.sql.Blob;
 import java.time.LocalDate;
 import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.yaml.snakeyaml.tokens.Token.ID;
-
 import exeptions.PacoteExeptions;
-import model.Cliente;
-import model.Compra;
 import model.Pacote;
 import repository.PacoteREPO;
 
 @Service
 public class ServicePacote {
 
-	@Autowired
 	private PacoteREPO pacoteREPO;
+
+	public ServicePacote(PacoteREPO pacoteREPO) {
+		this.pacoteREPO = pacoteREPO;
+	}
 
 	public Pacote criarPacote(String nome_pacote, float preco, LocalDate data_partida, LocalDate data_volta,
 			String destino, String descricao, LocalDate checkIn, int qtd_dias, Blob imagem_pacote)
@@ -49,7 +46,7 @@ public class ServicePacote {
 		return pacoteREPO.findAll();
 	}
 
-	public Optional<Pacote> getCompraPorId(ID id) {
+	public Optional<Pacote> getCompraPorId(Long id) {
 		return pacoteREPO.findById(id);
 	}
 

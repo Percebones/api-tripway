@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 public class Pacote {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_pacote;
+	private Long id_pacote;
 
 	@Column(name = "nome_pacote", nullable = false, length = 120)
 	private String nome_pacote;
@@ -62,11 +62,11 @@ public class Pacote {
 		this.imagem_pacote = imagem_pacote;
 	}
 
-	public int getId_pacote() {
+	public Long getId_pacote() {
 		return id_pacote;
 	}
 
-	public void setId_pacote(int id_pacote) {
+	public void setId_pacote(Long id_pacote) {
 		this.id_pacote = id_pacote;
 	}
 

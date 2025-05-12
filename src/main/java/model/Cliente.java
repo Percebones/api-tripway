@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_cliente;
+	private Long id_cliente;
 
 	@Column(name = "data_nascimento", nullable = false)
 	private LocalDate data_nascimento;
@@ -47,11 +47,11 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public int getId_cliente() {
+	public Long getId_cliente() {
 		return id_cliente;
 	}
 
-	public void setId_cliente(int id_cliente) {
+	public void setId_cliente(Long id_cliente) {
 		this.id_cliente = id_cliente;
 	}
 
