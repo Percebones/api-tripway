@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import br.com.tripway.exeptions.PacoteExeptions;
+import br.com.tripway.model.Compra;
 import br.com.tripway.model.Pacote;
 import br.com.tripway.repository.PacoteREPO;
 
@@ -49,6 +50,10 @@ public class ServicePacote {
 
 	public Optional<Pacote> getCompraPorId(Long id) {
 		return pacoteREPO.findById(id);
+	}
+
+	public Iterable<Pacote> getAllPacote() {
+		return pacoteREPO.findAll();
 	}
 
 }

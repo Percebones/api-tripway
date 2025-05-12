@@ -1,6 +1,5 @@
 package br.com.tripway.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,20 +25,19 @@ public class ClienteControler {
 	@PostMapping(path = "/adicionar")
 	public ResponseEntity<?> adicionarCliente(@RequestBody Cliente cliente) throws Exception {
 		try {
-			Cliente clienteNovo = serviceCliente.criarCliente(cliente.getData_nascimento(), cliente.getCpf(),
-					cliente.getNome(), cliente.getPhone(), cliente.getSexo(), cliente.getEmail());
+			serviceCliente.criarCliente(cliente.getData_nascimento(), cliente.getCpf(), cliente.getNome(),
+					cliente.getPhone(), cliente.getSexo(), cliente.getEmail());
 			return ResponseEntity.ok(HttpStatus.CREATED);
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().body("Erro ao criar cliente" + e.getMessage());
 		}
 	}
-	
+
 	@DeleteMapping
 	public void deleteCliente(@RequestBody Cliente cliente) throws ClienteExeptions {
 		serviceCliente.deleteCliente(cliente);
-		
+
 	}
-	
 
 	@GetMapping
 	public @ResponseBody Iterable<Cliente> getAllCliente() {
