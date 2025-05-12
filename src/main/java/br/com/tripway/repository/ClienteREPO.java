@@ -1,10 +1,10 @@
-package repository;
+package br.com.tripway.repository;
 
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import model.Cliente;
+import br.com.tripway.model.Cliente;
 
 @Repository
 public interface ClienteREPO extends REPOGenerico<Cliente> {

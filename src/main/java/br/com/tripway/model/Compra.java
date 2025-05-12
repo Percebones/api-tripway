@@ -1,4 +1,4 @@
-package model;
+package br.com.tripway.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

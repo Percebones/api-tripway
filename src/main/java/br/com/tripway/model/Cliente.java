@@ -1,4 +1,4 @@
-package model;
+package br.com.tripway.model;
 
 import java.time.LocalDate;
 
@@ -33,11 +33,15 @@ public class Cliente {
 
 	@Column(length = 100, nullable = false)
 	private String email;
+	
+	@Column(length = 32, nullable = false)
+	private String senha;
 
 	public Cliente() {
 	}
 
-	public Cliente(LocalDate data_nascimento, String cpf, String nome, String phone, char sexo, String email) {
+	public Cliente(LocalDate data_nascimento, String cpf, String nome, String phone, char sexo, String email,
+			String senha) {
 		super();
 		this.data_nascimento = data_nascimento;
 		this.cpf = cpf;
@@ -45,6 +49,7 @@ public class Cliente {
 		this.phone = phone;
 		this.sexo = sexo;
 		this.email = email;
+		this.senha = senha;
 	}
 
 	public Long getId_cliente() {
@@ -102,5 +107,15 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	
 
 }

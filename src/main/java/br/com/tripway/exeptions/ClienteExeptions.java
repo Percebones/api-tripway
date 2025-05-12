@@ -1,4 +1,4 @@
-package exeptions;
+package br.com.tripway.exeptions;
 
 public class ClienteExeptions extends Exception {
 

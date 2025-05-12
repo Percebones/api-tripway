@@ -1,16 +1,16 @@
-package controller;
+package br.com.tripway.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import service.ServiceCompra;
+import br.com.tripway.service.ServicePacote;
 
 @Controller
-@RequestMapping(path = "/compra")
-public class CompraControler {
+@RequestMapping(path = "/pacote")
+public class PacoteControler {
 	
 	@Autowired
-	private ServiceCompra serviceCompra;
+	private ServicePacote servicePacote;
 
 }

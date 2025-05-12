@@ -1,4 +1,4 @@
-package exeptions;
+package br.com.tripway.exeptions;
 
 public class CompraExeptions extends Exception {
 

@@ -1,6 +1,6 @@
-package model;
+package br.com.tripway.model;
 
-import exeptions.TipoPagamentoExeptions;
+import br.com.tripway.exeptions.TipoPagamentoExeptions;
 
 public enum TipoPagamento {
 	Pix(0), Credito(1), Debito(2), Boleto(3);

@@ -1,19 +1,19 @@
-package service;
+package br.com.tripway.service;
 
 import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import exeptions.ClienteExeptions;
-import model.Cliente;
-import repository.ClienteREPO;
+import br.com.tripway.exeptions.ClienteExeptions;
+import br.com.tripway.model.Cliente;
+import br.com.tripway.repository.ClienteREPO;
 
 @Service
 public class ServiceCliente {
 
 	private final ClienteREPO clienteRepo;
-
+	
 	public ServiceCliente(ClienteREPO clienteRepo) {
 		this.clienteRepo = clienteRepo;
 	}

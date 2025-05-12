@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-@EntityScan(basePackages = {"model"})
+@EntityScan(basePackages = {"br.com.tripway.model"})
 public class TripwayApplication {
 
 	public static void main(String[] args) {

@@ -1,13 +1,14 @@
-package service;
+package br.com.tripway.service;
 
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
-import model.Cliente;
-import model.Compra;
-import model.Pacote;
-import model.TipoPagamento;
-import repository.CompraREPO;
+
+import br.com.tripway.model.Cliente;
+import br.com.tripway.model.Compra;
+import br.com.tripway.model.Pacote;
+import br.com.tripway.model.TipoPagamento;
+import br.com.tripway.repository.CompraREPO;
 
 @Service
 public class ServiceCompra {

@@ -1,4 +1,4 @@
-package model;
+package br.com.tripway.model;
 
 import java.sql.Blob;
 import java.time.LocalDate;

@@ -1,12 +1,13 @@
-package service;
+package br.com.tripway.service;
 
 import java.sql.Blob;
 import java.time.LocalDate;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
-import exeptions.PacoteExeptions;
-import model.Pacote;
-import repository.PacoteREPO;
+
+import br.com.tripway.exeptions.PacoteExeptions;
+import br.com.tripway.model.Pacote;
+import br.com.tripway.repository.PacoteREPO;
 
 @Service
 public class ServicePacote {
