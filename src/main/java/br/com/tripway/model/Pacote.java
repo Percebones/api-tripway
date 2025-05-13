@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 public class Pacote {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_pacote;
+	private Long id;
 
 	@Column(name = "nome_pacote", nullable = false, length = 120)
 	private String nome_pacote;
@@ -41,7 +41,7 @@ public class Pacote {
 	@Column(name = "qtd_dias", nullable = false)
 	private int qtd_dias;
 	
-	@Column(name = "imagem_pacote", nullable = false)
+	@Column(name = "imagem_pacote", nullable = true)
 	Blob imagem_pacote;
 	
 
@@ -62,12 +62,12 @@ public class Pacote {
 		this.imagem_pacote = imagem_pacote;
 	}
 
-	public Long getId_pacote() {
-		return id_pacote;
+	public Long getId() {
+		return id;
 	}
 
-	public void setId_pacote(Long id_pacote) {
-		this.id_pacote = id_pacote;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome_pacote() {

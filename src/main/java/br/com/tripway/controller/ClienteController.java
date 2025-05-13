@@ -24,8 +24,7 @@ public class ClienteController {
 	@PostMapping(path = "/adicionar")
 	public ResponseEntity<?> adicionarCliente(@RequestBody Cliente cliente) throws Exception {
 		try {
-			serviceCliente.criarCliente(cliente.getData_nascimento(), cliente.getCpf(), cliente.getNome(),
-					cliente.getPhone(), cliente.getSexo(), cliente.getEmail());
+			serviceCliente.cadastroCliente(cliente);
 			return new ResponseEntity<>("Cliente criado com sucesso",HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>("Erro ao criar Cliente" + e.getMessage(),HttpStatus.BAD_REQUEST);

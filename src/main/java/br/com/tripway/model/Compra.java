@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 public class Compra {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_compra;
+	private Long id;
 
 	@Column(nullable = false)
 	private int qtd_pessoa;
@@ -45,12 +45,12 @@ public class Compra {
 		this.pacote = pacote;
 	}
 
-	public Long getId_compra() {
-		return id_compra;
+	public Long getId() {
+		return id;
 	}
 
-	public void setId_compra(Long id_compra) {
-		this.id_compra = id_compra;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public int getQtd_pessoa() {

@@ -21,7 +21,7 @@ public class PacoteController {
 	@Autowired
 	private ServicePacote servicePacote;
 
-	@PostMapping
+	@PostMapping(path = "/adicionar")
 	public ResponseEntity<?> adicionarPacote(@RequestBody Pacote pacote) {
 		try {
 			servicePacote.cadastroPacote(pacote);

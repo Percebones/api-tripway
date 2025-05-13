@@ -1,6 +1,5 @@
 package br.com.tripway.service;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -18,27 +17,16 @@ public class ServiceCliente {
 		this.clienteRepo = clienteRepo;
 	}
 
-	public Cliente criarCliente(LocalDate data_nascimento, String cpf, String nome, String phone, char sexo,
-			String email) throws ClienteExeptions {
-		try {
-			Cliente cliente = new Cliente();
-			cliente.setNome(nome);
-			cliente.setCpf(cpf);
-			cliente.setData_nascimento(data_nascimento);
-			cliente.setEmail(email);
-			cliente.setSexo(sexo);
-			return cadastroCliente(cliente);
-		} catch (Exception e) {
-			throw new ClienteExeptions("Tipo de dado invalido ou fora de ordem");
-		}
-
-	}
-
 	public Cliente cadastroCliente(Cliente cliente) throws ClienteExeptions {
 		if (clienteRepo.existsByCpf(cliente.getCpf())) {
 			throw new ClienteExeptions("Cliente com CPF já cadastrado.");
 		}
-		return clienteRepo.save(cliente);
+		try {
+			return clienteRepo.save(cliente);
+		}catch (Exception e){
+			throw new ClienteExeptions("Tipo de dado invalido ou fora de ordem");
+
+		}
 	}
 
 	public void deleteCliente(Cliente cliente) throws ClienteExeptions {

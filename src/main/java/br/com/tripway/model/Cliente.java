@@ -1,23 +1,14 @@
 package br.com.tripway.model;
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "cliente")
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_cliente;
-
-	@Column(name = "data_nascimento", nullable = false)
-	private LocalDate data_nascimento;
+	private Long id;
 
 	@Column(unique = true, nullable = false)
 	private String cpf;
@@ -40,10 +31,9 @@ public class Cliente {
 	public Cliente() {
 	}
 
-	public Cliente(LocalDate data_nascimento, String cpf, String nome, String phone, char sexo, String email,
+	public Cliente(String cpf, String nome, String phone, char sexo, String email,
 			String senha) {
 		super();
-		this.data_nascimento = data_nascimento;
 		this.cpf = cpf;
 		this.nome = nome;
 		this.phone = phone;
@@ -52,21 +42,14 @@ public class Cliente {
 		this.senha = senha;
 	}
 
-	public Long getId_cliente() {
-		return id_cliente;
+	public Long getId() {
+		return id;
 	}
 
-	public void setId_cliente(Long id_cliente) {
-		this.id_cliente = id_cliente;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public LocalDate getData_nascimento() {
-		return data_nascimento;
-	}
-
-	public void setData_nascimento(LocalDate data_nascimento) {
-		this.data_nascimento = data_nascimento;
-	}
 
 	public String getCpf() {
 		return cpf;

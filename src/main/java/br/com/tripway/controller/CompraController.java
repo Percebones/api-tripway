@@ -22,7 +22,7 @@ public class CompraController {
 	@Autowired
 	private ServiceCompra serviceCompra;
 
-	@PostMapping
+	@PostMapping(path = "/adicionar")
 	public ResponseEntity<?> adicionarCompra(@RequestBody Compra compra) {
 		try {
 			serviceCompra.cadastroCompra(compra);

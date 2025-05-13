@@ -1,15 +1,11 @@
-package br.com.tripway.api;
+package br.com.tripway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-@EntityScan(basePackages = {"br.com.tripway.model"})
 public class TripwayApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(TripwayApplication.class, args);
 	}
-
 }
