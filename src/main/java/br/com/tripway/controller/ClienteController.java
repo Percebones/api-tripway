@@ -3,16 +3,13 @@ package br.com.tripway.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import br.com.tripway.exeptions.ClienteExeptions;
 import br.com.tripway.model.Cliente;
 import br.com.tripway.service.ServiceCliente;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/cliente")
@@ -31,7 +28,7 @@ public class ClienteController {
 		}
 	}
 
-	@DeleteMapping
+	@DeleteMapping(path = "/deletar")
 	public ResponseEntity<String> deleteCliente(@RequestBody Cliente cliente) throws ClienteExeptions {
 		try {
 			serviceCliente.deleteCliente(cliente);
@@ -41,11 +38,12 @@ public class ClienteController {
 		}
 
 	}
+	@GetMapping(path = "/puxarPorId/{id}")
+	public Optional<Cliente> getClientePorID(@PathVariable Long id){return  serviceCliente.getClientePorId(id);}
 
-	@GetMapping
+	@GetMapping(path = "/puxarTudo")
 	public Iterable<Cliente> getAllCliente() {
 		return serviceCliente.getAllClientes();
-
 	}
 
 }

@@ -12,7 +12,7 @@ import br.com.tripway.repository.ClienteREPO;
 public class ServiceCliente {
 
 	private final ClienteREPO clienteRepo;
-	
+
 	public ServiceCliente(ClienteREPO clienteRepo) {
 		this.clienteRepo = clienteRepo;
 	}
@@ -41,7 +41,7 @@ public class ServiceCliente {
 		return clienteRepo.findAll();
 	}
 
-	public Optional<Cliente> getClientePorId(Integer id) {
-		return clienteRepo.findById(id);
+	public Optional<Cliente> getClientePorId(Long id) {
+		return clienteRepo.findAllById(id);
 	}
 }

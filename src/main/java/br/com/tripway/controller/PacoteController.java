@@ -32,7 +32,7 @@ public class PacoteController {
 		}
 	}
 
-	@DeleteMapping
+	@DeleteMapping(path = "/deletar")
 	public ResponseEntity<String> deletePacote(@RequestBody Pacote pacote) {
 		try {
 			servicePacote.deletePacote(pacote);
@@ -42,7 +42,7 @@ public class PacoteController {
 		}
 	}
 
-	@GetMapping
+	@GetMapping(path = "/puxarTudo")
 	public Iterable<Pacote> getAllCompra() {
 		return servicePacote.getAllPacote();
 	}

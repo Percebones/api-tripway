@@ -53,7 +53,7 @@ public class ServicePacote {
 		return pacoteREPO.findAll();
 	}
 
-	public Optional<Pacote> getCompraPorId(Long id) {
+	public Optional<Pacote> getPacotePorId(Long id) {
 		return pacoteREPO.findById(id);
 	}
 

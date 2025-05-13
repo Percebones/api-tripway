@@ -1,19 +1,17 @@
 package br.com.tripway.controller;
 
+import br.com.tripway.model.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import br.com.tripway.exeptions.ClienteExeptions;
 import br.com.tripway.exeptions.CompraExeptions;
 import br.com.tripway.model.Compra;
 import br.com.tripway.service.ServiceCompra;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/compra")
@@ -33,7 +31,7 @@ public class CompraController {
 		}
 	}
 
-	@DeleteMapping
+	@DeleteMapping(path = "/deletar")
 	public ResponseEntity<String> deleteCompra(@RequestBody Compra compra) {
 		try {
 			serviceCompra.deleteCompra(compra);
@@ -42,8 +40,10 @@ public class CompraController {
 			return new ResponseEntity<>("Erro ao deletar compra: " + e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 	}
+	@GetMapping(path = "/puxarPorId/{id}")
+	public Optional<Compra> getCompraPorID(@PathVariable Long id){return  serviceCompra.getCompraPorId(id);}
 
-	@GetMapping
+	@GetMapping(path = "/puxarTudo")
 	public Iterable<Compra> getAllCompra() {
 		return serviceCompra.getAllCompras();
 	}
