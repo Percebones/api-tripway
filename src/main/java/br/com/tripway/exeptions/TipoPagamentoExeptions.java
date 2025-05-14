@@ -1,18 +1,18 @@
 package br.com.tripway.exeptions;
 
-public class TipoPagamentoExeptions extends Exception{
+public class TipoPagamentoExeptions extends Exception {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	public TipoPagamentoExeptions() {
-		super();
-	}
+    public TipoPagamentoExeptions() {
+        super();
+    }
 
-	public TipoPagamentoExeptions(String msg) {
-		super(msg);
-	}
-	
+    public TipoPagamentoExeptions(String msg) {
+        super(msg);
+    }
+
 }

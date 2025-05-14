@@ -1,17 +1,15 @@
 package br.com.tripway.repository;
 
-import java.util.Optional;
-
+import br.com.tripway.model.Cliente;
 import org.springframework.stereotype.Repository;
 
-import br.com.tripway.model.Cliente;
+import java.util.Optional;
 
 @Repository
 public interface ClienteREPO extends REPOGenerico<Cliente> {
 
 
-
-	boolean existsByCpf(String cpf);
+    boolean existsByCpf(String cpf);
 
     Optional<Cliente> findAllById(Long id);
 }

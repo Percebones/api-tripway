@@ -1,6 +1,7 @@
 # 🌍 TripWay API
 
-API REST desenvolvida com **Spring Boot** para um sistema de **compra de pacotes de viagens**. Essa API permite o cadastro de clientes, gerenciamento de pacotes turísticos, registro de compras e tipos de pagamento.
+API REST desenvolvida com **Spring Boot** para um sistema de **compra de pacotes de viagens**. Essa API permite o
+cadastro de clientes, gerenciamento de pacotes turísticos, registro de compras e tipos de pagamento.
 
 ---
 ![Java](https://img.shields.io/badge/Java-17-blue)
@@ -35,7 +36,6 @@ API REST desenvolvida com **Spring Boot** para um sistema de **compra de pacotes
 - MySQL rodando
 - IDE (Eclipse, IntelliJ, VSCode)
 - Maven instalado
-
 
 ### 2. Configurar o `application.properties`
 
