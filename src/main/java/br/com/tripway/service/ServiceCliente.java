@@ -1,5 +1,6 @@
 package br.com.tripway.service;
 
+import br.com.tripway.exeptions.CadastroExeptions;
 import br.com.tripway.exeptions.ClienteExeptions;
 import br.com.tripway.model.Cliente;
 import br.com.tripway.repository.ClienteREPO;
@@ -17,13 +18,13 @@ public class ServiceCliente {
     }
 
     public Cliente cadastroCliente(Cliente cliente) throws ClienteExeptions {
-        if (clienteRepo.existsByCpf(cliente.getCpf())) {
-            throw new ClienteExeptions("Cliente com CPF já cadastrado.");
+        if (clienteRepo.existsByCpf(cliente.getCpf()) || clienteRepo.existsByEmail(cliente.getEmail())) {
+            throw new CadastroExeptions(" CPF ou email já cadastrado.");
         }
         try {
             return clienteRepo.save(cliente);
         } catch (Exception e) {
-            throw new ClienteExeptions("Tipo de dado invalido ou fora de ordem");
+            throw new CadastroExeptions(" Tipo de dado invalido ou fora de ordem");
 
         }
     }
@@ -32,7 +33,7 @@ public class ServiceCliente {
         if (clienteRepo.existsByCpf(cliente.getCpf())) {
             clienteRepo.delete(cliente);
         } else {
-            throw new ClienteExeptions("Cliente Não encontrado");
+            throw new ClienteExeptions(" Cliente Não encontrado");
         }
     }
 

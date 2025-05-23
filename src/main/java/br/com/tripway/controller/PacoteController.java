@@ -1,5 +1,6 @@
 package br.com.tripway.controller;
 
+import br.com.tripway.dto.PacoteDTO;
 import br.com.tripway.model.Pacote;
 import br.com.tripway.service.ServicePacote;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,9 @@ public class PacoteController {
     private ServicePacote servicePacote;
 
     @PostMapping(path = "/adicionar")
-    public ResponseEntity<?> adicionarPacote(@RequestBody Pacote pacote) {
+    public ResponseEntity<?> adicionarPacote(@RequestBody PacoteDTO pacoteDTO) {
         try {
+            Pacote pacote = new Pacote(pacoteDTO);
             servicePacote.cadastroPacote(pacote);
             return new ResponseEntity<>("Pacote criado com sucesso", HttpStatus.CREATED);
         } catch (Exception e) {
@@ -26,8 +28,9 @@ public class PacoteController {
     }
 
     @DeleteMapping(path = "/deletar")
-    public ResponseEntity<String> deletePacote(@RequestBody Pacote pacote) {
+    public ResponseEntity<String> deletePacote(@RequestBody PacoteDTO pacoteDTO) {
         try {
+            Pacote pacote = new Pacote(pacoteDTO);
             servicePacote.deletePacote(pacote);
             return new ResponseEntity<>("Pacote deletado com sucesso", HttpStatus.NO_CONTENT);
         } catch (Exception e) {

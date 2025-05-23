@@ -1,61 +1,55 @@
-package br.com.tripway.model;
+package br.com.tripway.dto;
 
-import br.com.tripway.dto.PacoteDTO;
 import br.com.tripway.enums.Regioes;
-import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.sql.Blob;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "pacote")
-public class Pacote {
-    @Lob
-    @Column(name = "imagem_pacote", nullable = true)
+public class PacoteDTO {
+
+    private final Long id;
     private Blob imagem_pacote;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name = "nome_pacote", nullable = false, length = 120)
     private String nome_pacote;
-    @Column(nullable = false)
     private BigDecimal preco;
-    @Column(name = "data_partida", nullable = false)
     private LocalDate data_partida;
-    @Column(name = "data_volta", nullable = false)
     private LocalDate data_volta;
-    @Column(nullable = false)
     private String destino;
-    @Column(nullable = false)
     private String descricao;
-    @Column(nullable = false)
     private LocalDate checkIn;
-    @Column(name = "qtd_dias", nullable = false)
     private int qtd_dias;
-    @Column(nullable = true)
     private int avaliacao;
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private Regioes regiao;
 
-
-    public Pacote() {
+    public PacoteDTO(Blob imagem_pacote, Long id, String nome_pacote, BigDecimal preco, LocalDate data_partida, LocalDate data_volta, String destino, String descricao, LocalDate checkIn, int qtd_dias, int avaliacao, Regioes regiao) {
+        this.imagem_pacote = imagem_pacote;
+        this.id = id;
+        this.nome_pacote = nome_pacote;
+        this.preco = preco;
+        this.data_partida = data_partida;
+        this.data_volta = data_volta;
+        this.destino = destino;
+        this.descricao = descricao;
+        this.checkIn = checkIn;
+        this.qtd_dias = qtd_dias;
+        this.avaliacao = avaliacao;
+        this.regiao = regiao;
     }
 
-    public Pacote(PacoteDTO pacoteDTO) {
-        super();
-        this.nome_pacote = pacoteDTO.getNome_pacote();
-        this.preco = pacoteDTO.getPreco();
-        this.data_partida = pacoteDTO.getData_partida();
-        this.data_volta = pacoteDTO.getData_volta();
-        this.destino = pacoteDTO.getDestino();
-        this.descricao = pacoteDTO.getDescricao();
-        this.checkIn = pacoteDTO.getCheckIn();
-        this.qtd_dias = pacoteDTO.getQtd_dias();
-        this.imagem_pacote = pacoteDTO.getImagem_pacote();
-        this.avaliacao = pacoteDTO.getAvaliacao();
-        this.regiao = pacoteDTO.getRegiao();
+    public Blob getImagem_pacote() {
+        return imagem_pacote;
+    }
+
+    public void setImagem_pacote(Blob imagem_pacote) {
+        this.imagem_pacote = imagem_pacote;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
     }
 
     public Long getId() {
@@ -68,14 +62,6 @@ public class Pacote {
 
     public void setNome_pacote(String nome_pacote) {
         this.nome_pacote = nome_pacote;
-    }
-
-    public BigDecimal getPreco() {
-        return preco;
-    }
-
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
     }
 
     public LocalDate getData_partida() {
@@ -126,14 +112,6 @@ public class Pacote {
         this.qtd_dias = qtd_dias;
     }
 
-    public Blob getImagem_pacote() {
-        return imagem_pacote;
-    }
-
-    public void setImagem_pacote(Blob imagem_pacote) {
-        this.imagem_pacote = imagem_pacote;
-    }
-
     public int getAvaliacao() {
         return avaliacao;
     }
@@ -149,5 +127,4 @@ public class Pacote {
     public void setRegiao(Regioes regiao) {
         this.regiao = regiao;
     }
-
 }

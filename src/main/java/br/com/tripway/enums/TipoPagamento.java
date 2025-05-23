@@ -1,4 +1,4 @@
-package br.com.tripway.model;
+package br.com.tripway.enums;
 
 import br.com.tripway.exeptions.TipoPagamentoExeptions;
 

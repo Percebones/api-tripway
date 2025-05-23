@@ -1,54 +1,35 @@
-package br.com.tripway.model;
-
-import br.com.tripway.dto.ClienteDTO;
-import jakarta.persistence.*;
+package br.com.tripway.dto;
 
 import java.sql.Blob;
 
+public class ClienteDTO {
 
-@Entity
-@Table(name = "cliente")
-public class Cliente {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(unique = true, nullable = false)
     private String cpf;
-
-    @Column(nullable = false)
     private String nome;
-
-    @Column(length = 15, nullable = false)
-    private String phone;
-
-    @Column(length = 1, nullable = false)
+    private String telefone;
     private char sexo;
-
-    @Column(length = 100, nullable = false)
     private String email;
-
-    @Column(length = 32, nullable = false)
     private String senha;
-    @Lob
-    @Column(name = "imagem_usuario", nullable = true)
     private Blob imagem_usuario;
 
-    public Cliente() {
-    }
-
-    public Cliente(ClienteDTO clienteDTO) {
-        super();
-        this.cpf = clienteDTO.getCpf();
-        this.nome = clienteDTO.getNome();
-        this.phone = clienteDTO.getTelefone();
-        this.sexo = clienteDTO.getSexo();
-        this.email = clienteDTO.getEmail();
-        this.senha = clienteDTO.getSenha();
+    public ClienteDTO(Long id, String cpf, String nome, String phone, char sexo, String email, String senha, Blob imagem_usuario) {
+        this.id = id;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.telefone = phone;
+        this.sexo = sexo;
+        this.email = email;
+        this.senha = senha;
+        this.imagem_usuario = imagem_usuario;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCpf() {
@@ -67,12 +48,12 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public char getSexo() {

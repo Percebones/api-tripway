@@ -1,5 +1,6 @@
 package br.com.tripway.controller;
 
+import br.com.tripway.dto.ClienteDTO;
 import br.com.tripway.exeptions.ClienteExeptions;
 import br.com.tripway.model.Cliente;
 import br.com.tripway.service.ServiceCliente;
@@ -17,9 +18,10 @@ public class ClienteController {
     @Autowired
     private ServiceCliente serviceCliente;
 
-    @PostMapping(path = "/adicionar")
-    public ResponseEntity<?> adicionarCliente(@RequestBody Cliente cliente) throws Exception {
+    @PostMapping(path = "/cadastrar")
+    public ResponseEntity<?> adicionarCliente(@RequestBody ClienteDTO clienteDTO) throws Exception {
         try {
+            Cliente cliente = new Cliente(clienteDTO);
             serviceCliente.cadastroCliente(cliente);
             return new ResponseEntity<>("Cliente criado com sucesso", HttpStatus.CREATED);
         } catch (Exception e) {
@@ -28,8 +30,9 @@ public class ClienteController {
     }
 
     @DeleteMapping(path = "/deletar")
-    public ResponseEntity<String> deleteCliente(@RequestBody Cliente cliente) throws ClienteExeptions {
+    public ResponseEntity<String> deleteCliente(@RequestBody ClienteDTO clienteDTO) throws ClienteExeptions {
         try {
+            Cliente cliente = new Cliente(clienteDTO);
             serviceCliente.deleteCliente(cliente);
             return new ResponseEntity<>("Cliente deletado com sucesso", HttpStatus.NO_CONTENT);
         } catch (ClienteExeptions e) {

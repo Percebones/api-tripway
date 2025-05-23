@@ -1,5 +1,7 @@
 package br.com.tripway.model;
 
+import br.com.tripway.dto.CompraDTO;
+import br.com.tripway.enums.TipoPagamento;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -31,21 +33,17 @@ public class Compra {
     public Compra() {
     }
 
-    public Compra(int qtd_pessoa, TipoPagamento tipo_pagamento, BigDecimal total_pago, Cliente cliente, Pacote pacote) {
+    public Compra(CompraDTO compraDTO) {
         super();
-        this.qtd_pessoa = qtd_pessoa;
-        this.tipo_pagamento = tipo_pagamento;
-        this.total_pago = total_pago;
-        this.cliente = cliente;
-        this.pacote = pacote;
+        this.qtd_pessoa = compraDTO.getQtd_pessoa();
+        this.tipo_pagamento = compraDTO.getTipo_pagamento();
+        this.total_pago = compraDTO.getTotal_pago();
+        this.cliente = compraDTO.getCliente();
+        this.pacote = compraDTO.getPacote();
     }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public int getQtd_pessoa() {
