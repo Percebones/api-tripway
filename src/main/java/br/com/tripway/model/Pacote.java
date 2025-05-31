@@ -18,7 +18,7 @@ public class Pacote {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "nome_pacote", nullable = false, length = 120)
-    private String nome_pacote;
+    private String nomePacote;
     @Column(nullable = false)
     private BigDecimal preco;
     @Column(name = "data_partida", nullable = false)
@@ -45,7 +45,7 @@ public class Pacote {
 
     public Pacote(PacoteDTO pacoteDTO) {
         super();
-        this.nome_pacote = pacoteDTO.getNome_pacote();
+        this.nomePacote = pacoteDTO.getNome_pacote();
         this.preco = pacoteDTO.getPreco();
         this.data_partida = pacoteDTO.getData_partida();
         this.data_volta = pacoteDTO.getData_volta();
@@ -62,12 +62,12 @@ public class Pacote {
         return id;
     }
 
-    public String getNome_pacote() {
-        return nome_pacote;
+    public String getNomePacote() {
+        return nomePacote;
     }
 
-    public void setNome_pacote(String nome_pacote) {
-        this.nome_pacote = nome_pacote;
+    public void setNomePacote(String nomePacote) {
+        this.nomePacote = nomePacote;
     }
 
     public BigDecimal getPreco() {

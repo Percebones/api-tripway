@@ -10,7 +10,7 @@ public interface CompraREPO extends REPOGenerico<Compra> {
 
     List<Compra> findByClienteId(Long id);
 
-    }
+}
 
 
 

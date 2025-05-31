@@ -1,5 +1,6 @@
 package br.com.tripway.service;
 
+import br.com.tripway.enums.Regioes;
 import br.com.tripway.exeptions.PacoteExeptions;
 import br.com.tripway.model.Pacote;
 import br.com.tripway.repository.PacoteREPO;
@@ -41,6 +42,14 @@ public class ServicePacote {
 
     public Iterable<Pacote> getAllClientes() {
         return pacoteREPO.findAll();
+    }
+
+    public Optional<Pacote> getPacotePorNome(String nome) {
+        return pacoteREPO.findByNomePacote(nome);
+    }
+
+    public Optional<Pacote> getPacotePorRegiao(Regioes regiao) {
+        return pacoteREPO.findByRegiao(regiao);
     }
 
     public Optional<Pacote> getPacotePorId(Long id) {

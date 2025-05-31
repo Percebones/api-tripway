@@ -1,12 +1,15 @@
 package br.com.tripway.controller;
 
 import br.com.tripway.dto.PacoteDTO;
+import br.com.tripway.enums.Regioes;
 import br.com.tripway.model.Pacote;
 import br.com.tripway.service.ServicePacote;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/pacote")
@@ -36,6 +39,16 @@ public class PacoteController {
         } catch (Exception e) {
             return new ResponseEntity<>("Erro ao deletar Pacote: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @GetMapping(path = "puxarPorNome")
+    public Optional<Pacote> getPorNome(String nome) {
+        return servicePacote.getPacotePorNome(nome);
+    }
+
+    @GetMapping(path = "puxarPorRegiao")
+    public Optional<Pacote> getPorRegiao(Regioes regiao) {
+        return servicePacote.getPacotePorRegiao(regiao);
     }
 
     @GetMapping(path = "/puxarTudo")

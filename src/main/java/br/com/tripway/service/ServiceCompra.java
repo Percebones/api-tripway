@@ -18,7 +18,7 @@ public class ServiceCompra {
         this.compraREPO = compraREPO;
     }
 
-    public List<Pacote> pacotesDoCliente(Long id){
+    public List<Pacote> pacotesDoCliente(Long id) {
         List<Compra> compras = compraREPO.findByClienteId(id);
         return compras.stream().map(Compra::getPacote).collect(Collectors.toList());
     }
