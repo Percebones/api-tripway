@@ -56,6 +56,18 @@ public class ServicePacote {
         return pacoteREPO.findById(id);
     }
 
+    public Optional<Pacote> getPacotePorPreco(BigDecimal preco) {
+        return pacoteREPO.findByPreco(preco);
+    }
+
+    public Optional<Pacote> getPacotePrecoPorRange(BigDecimal min,BigDecimal max){
+        return pacoteREPO.findByPrecoBetween(min,max);
+    }
+
+    public Optional<Pacote> getPacotePorAvaliacao(int avalicao) {
+        return pacoteREPO.findByAvaliacao(avalicao);
+    }
+
     public Iterable<Pacote> getAllPacote() {
         return pacoteREPO.findAll();
     }

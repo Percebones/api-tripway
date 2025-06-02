@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 @RestController
@@ -44,6 +45,21 @@ public class PacoteController {
     @GetMapping(path = "puxarPorNome")
     public Optional<Pacote> getPorNome(String nome) {
         return servicePacote.getPacotePorNome(nome);
+    }
+
+    @GetMapping(path = "puxarPorAvaliacao")
+    public Optional<Pacote> getPorAvaliacao(int avaliacao) {
+        return servicePacote.getPacotePorAvaliacao(avaliacao);
+    }
+
+    @GetMapping(path = "puxarPorPreco")
+    public Optional<Pacote> getPorPreco(BigDecimal preco) {
+        return servicePacote.getPacotePorPreco(preco);
+    }
+
+    @GetMapping(path = "puxarPorRangePreco")
+    public Optional<Pacote> getPorPrecoRange(BigDecimal min, BigDecimal max){
+        return servicePacote.getPacotePrecoPorRange(min,max);
     }
 
     @GetMapping(path = "puxarPorRegiao")
