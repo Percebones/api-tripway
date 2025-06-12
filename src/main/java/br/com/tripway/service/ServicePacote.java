@@ -7,6 +7,7 @@ import br.com.tripway.repository.PacoteREPO;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -54,6 +55,18 @@ public class ServicePacote {
 
     public Optional<Pacote> getPacotePorId(Long id) {
         return pacoteREPO.findById(id);
+    }
+
+    public Optional<Pacote> getPacotePorPreco(BigDecimal preco) {
+        return pacoteREPO.findByPreco(preco);
+    }
+
+    public List<Pacote> getPacotePrecoPorRange(BigDecimal min, BigDecimal max){
+        return pacoteREPO.findByPrecoBetween(min,max);
+    }
+
+    public Optional<Pacote> getPacotePorAvaliacao(int avalicao) {
+        return pacoteREPO.findByAvaliacao(avalicao);
     }
 
     public Iterable<Pacote> getAllPacote() {

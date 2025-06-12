@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -41,13 +43,28 @@ public class PacoteController {
         }
     }
 
-    @GetMapping(path = "puxarPorNome")
-    public Optional<Pacote> getPorNome(String nome) {
+    @GetMapping(path = "/puxarPorNome")
+    public Optional<Pacote> getPorNome(@RequestParam String nome) {
         return servicePacote.getPacotePorNome(nome);
     }
 
-    @GetMapping(path = "puxarPorRegiao")
-    public Optional<Pacote> getPorRegiao(Regioes regiao) {
+    @GetMapping(path = "/puxarPorAvaliacao")
+    public Optional<Pacote> getPorAvaliacao(@RequestParam int avaliacao) {
+        return servicePacote.getPacotePorAvaliacao(avaliacao);
+    }
+
+    @GetMapping(path = "/puxarPorPreco")
+    public Optional<Pacote> getPorPreco(@RequestParam BigDecimal preco) {
+        return servicePacote.getPacotePorPreco(preco);
+    }
+
+    @GetMapping(path = "/puxarPorRangePreco")
+    public List<Pacote> getPorPrecoRange(@RequestParam BigDecimal min, @RequestParam BigDecimal max){
+        return servicePacote.getPacotePrecoPorRange(min,max);
+    }
+
+    @GetMapping(path = "/puxarPorRegiao")
+    public Optional<Pacote> getPorRegiao(@RequestParam Regioes regiao) {
         return servicePacote.getPacotePorRegiao(regiao);
     }
 
