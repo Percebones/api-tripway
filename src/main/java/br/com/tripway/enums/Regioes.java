@@ -1,15 +1,15 @@
 package br.com.tripway.enums;
 
 public enum Regioes {
-    asia("Ásia "), americaDoNorte("América do Norte"), americaDoSul("América do Sul"), oceania("Oceania"), europa("Europa");
+    Asia(1), AmericaDoNorte(2), AmericaDoSul(3), Oceania(4), Europa(5);
 
-    private final String regiao;
+    private final int codigo;
 
-    Regioes(String regiao) {
-        this.regiao = regiao;
+    Regioes(int codigo) {
+        this.codigo = codigo;
     }
 
-    public String getRegiao() {
-        return regiao;
+    public int getRegiao() {
+        return codigo;
     }
 }
