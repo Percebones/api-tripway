@@ -30,6 +30,10 @@ public class Compra {
     @JoinColumn(name = "id_pacote", nullable = false)
     private Pacote pacote;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "passagem_id", referencedColumnName = "id")
+    private Passagem passagem;
+
     public Compra() {
     }
 
@@ -40,6 +44,7 @@ public class Compra {
         this.total_pago = compraDTO.getTotal_pago();
         this.cliente = compraDTO.getCliente();
         this.pacote = compraDTO.getPacote();
+        this.passagem = compraDTO.getPassagem();
     }
 
     public Long getId() {

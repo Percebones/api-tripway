@@ -1,6 +1,7 @@
 package br.com.tripway.dto;
 
 import br.com.tripway.enums.Regioes;
+import br.com.tripway.model.Hotel;
 
 import java.math.BigDecimal;
 import java.sql.Blob;
@@ -21,7 +22,12 @@ public class PacoteDTO {
     private int avaliacao;
     private Regioes regiao;
 
-    public PacoteDTO(Blob imagem_pacote, Long id, String nome_pacote, BigDecimal preco, LocalDate data_partida, LocalDate data_volta, String destino, String descricao, LocalDate checkIn, int qtd_dias, int avaliacao, Regioes regiao) {
+    private Hotel hotel;      // novo
+    private PassagemDTO passagem; // novo
+
+    public PacoteDTO(Blob imagem_pacote, Long id, String nome_pacote, BigDecimal preco, LocalDate data_partida, LocalDate data_volta,
+                     String destino, String descricao, LocalDate checkIn, int qtd_dias, int avaliacao, Regioes regiao,
+                     Hotel hotel, PassagemDTO passagem) {  // incluiu hotel e passagem
         this.imagem_pacote = imagem_pacote;
         this.id = id;
         this.nome_pacote = nome_pacote;
@@ -34,7 +40,11 @@ public class PacoteDTO {
         this.qtd_dias = qtd_dias;
         this.avaliacao = avaliacao;
         this.regiao = regiao;
+        this.hotel = hotel;
+        this.passagem = passagem;
     }
+
+    // getters e setters
 
     public Blob getImagem_pacote() {
         return imagem_pacote;
@@ -126,5 +136,21 @@ public class PacoteDTO {
 
     public void setRegiao(Regioes regiao) {
         this.regiao = regiao;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public PassagemDTO getPassagem() {
+        return passagem;
+    }
+
+    public void setPassagem(PassagemDTO passagem) {
+        this.passagem = passagem;
     }
 }

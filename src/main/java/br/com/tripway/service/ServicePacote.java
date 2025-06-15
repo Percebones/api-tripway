@@ -61,8 +61,8 @@ public class ServicePacote {
         return pacoteREPO.findByPreco(preco);
     }
 
-    public List<Pacote> getPacotePrecoPorRange(BigDecimal min, BigDecimal max){
-        return pacoteREPO.findByPrecoBetween(min,max);
+    public List<Pacote> getPacotePrecoPorRange(BigDecimal min, BigDecimal max) {
+        return pacoteREPO.findByPrecoBetween(min, max);
     }
 
     public Optional<Pacote> getPacotePorAvaliacao(int avalicao) {

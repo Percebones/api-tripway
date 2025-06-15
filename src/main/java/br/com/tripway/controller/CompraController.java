@@ -3,7 +3,9 @@ package br.com.tripway.controller;
 import br.com.tripway.dto.CompraDTO;
 import br.com.tripway.model.Compra;
 import br.com.tripway.model.Pacote;
+import br.com.tripway.model.Passagem;
 import br.com.tripway.service.ServiceCompra;
+import br.com.tripway.service.ServicePassagem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,18 +20,24 @@ public class CompraController {
 
     @Autowired
     private ServiceCompra serviceCompra;
+    @Autowired
+    private ServicePassagem servicePassagem;
+
 
     @PostMapping(path = "/adicionar")
     public ResponseEntity<?> adicionarCompra(@RequestBody CompraDTO compraDTO) {
         try {
+            Passagem passagem = servicePassagem.emitePassagem(compraDTO.getPassagem());
+            compraDTO.setPassagem(passagem);
             Compra compra = new Compra(compraDTO);
             serviceCompra.cadastroCompra(compra);
+
             return new ResponseEntity<>("Compra efetuada com sucesso", HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>("Erro ao criar Compra" + e.getMessage(), HttpStatus.BAD_REQUEST);
-
+            return new ResponseEntity<>("Erro ao criar Compra: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+
 
     @GetMapping(path = "/pacotesDoCliente{id}")
     public List<Pacote> pacotesDoCliente(@RequestParam Long id) {

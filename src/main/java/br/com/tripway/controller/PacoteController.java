@@ -2,7 +2,9 @@ package br.com.tripway.controller;
 
 import br.com.tripway.dto.PacoteDTO;
 import br.com.tripway.enums.Regioes;
+import br.com.tripway.model.Hotel;
 import br.com.tripway.model.Pacote;
+import br.com.tripway.service.ServiceHotel;
 import br.com.tripway.service.ServicePacote;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,10 +22,15 @@ public class PacoteController {
     @Autowired
     private ServicePacote servicePacote;
 
+    @Autowired
+    private ServiceHotel serviceHotel;
+
     @PostMapping(path = "/adicionar")
     public ResponseEntity<?> adicionarPacote(@RequestBody PacoteDTO pacoteDTO) {
         try {
+            Hotel hotel = serviceHotel.emiteHotel(pacoteDTO.getHotel());
             Pacote pacote = new Pacote(pacoteDTO);
+            pacote.setHotel(hotel);
             servicePacote.cadastroPacote(pacote);
             return new ResponseEntity<>("Pacote criado com sucesso", HttpStatus.CREATED);
         } catch (Exception e) {
@@ -59,8 +66,8 @@ public class PacoteController {
     }
 
     @GetMapping(path = "/puxarPorRangePreco")
-    public List<Pacote> getPorPrecoRange(@RequestParam BigDecimal min, @RequestParam BigDecimal max){
-        return servicePacote.getPacotePrecoPorRange(min,max);
+    public List<Pacote> getPorPrecoRange(@RequestParam BigDecimal min, @RequestParam BigDecimal max) {
+        return servicePacote.getPacotePrecoPorRange(min, max);
     }
 
     @GetMapping(path = "/puxarPorRegiao")

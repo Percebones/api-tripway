@@ -18,7 +18,7 @@ public class ServiceCliente {
     }
 
     public Cliente cadastroCliente(Cliente cliente) throws ClienteExeptions {
-        if (clienteRepo.existsByCpf(cliente.getCpf()) || clienteRepo.existsByEmail(cliente.getEmail())) {
+        if (clienteRepo.existsByEmail(cliente.getEmail())) {
             throw new CadastroExeptions(" CPF ou email já cadastrado.");
         }
         try {

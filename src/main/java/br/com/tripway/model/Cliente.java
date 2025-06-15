@@ -13,16 +13,16 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = true)
     private String cpf;
 
     @Column(nullable = false)
     private String nome;
 
-    @Column(length = 15, nullable = false)
+    @Column(length = 15, nullable = true)
     private String phone;
 
-    @Column(length = 1, nullable = false)
+    @Column(length = 1, nullable = true)
     private char sexo;
 
     @Column(length = 100, nullable = false)

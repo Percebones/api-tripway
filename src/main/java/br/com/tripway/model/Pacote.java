@@ -11,40 +11,54 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "pacote")
 public class Pacote {
-    @Lob
-    @Column(name = "imagem_pacote", nullable = true)
-    private Blob imagem_pacote;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Lob
+    @Column(name = "imagem_pacote", nullable = true)
+    private Blob imagem_pacote;
+
     @Column(name = "nome_pacote", nullable = false, length = 120)
     private String nomePacote;
+
     @Column(nullable = false)
     private BigDecimal preco;
+
     @Column(name = "data_partida", nullable = false)
     private LocalDate data_partida;
+
     @Column(name = "data_volta", nullable = false)
     private LocalDate data_volta;
+
     @Column(nullable = false)
     private String destino;
+
     @Column(nullable = false)
     private String descricao;
+
     @Column(nullable = false)
     private LocalDate checkIn;
+
     @Column(name = "qtd_dias", nullable = false)
     private int qtd_dias;
+
     @Column(nullable = true)
     private int avaliacao;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Regioes regiao;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "hotel_id", referencedColumnName = "id")
+    private Hotel hotel;
 
     public Pacote() {
     }
 
     public Pacote(PacoteDTO pacoteDTO) {
-        super();
         this.nomePacote = pacoteDTO.getNome_pacote();
         this.preco = pacoteDTO.getPreco();
         this.data_partida = pacoteDTO.getData_partida();
@@ -57,6 +71,8 @@ public class Pacote {
         this.avaliacao = pacoteDTO.getAvaliacao();
         this.regiao = pacoteDTO.getRegiao();
     }
+
+    // Getters e Setters com os mesmos nomes do campo
 
     public Long getId() {
         return id;
@@ -150,4 +166,11 @@ public class Pacote {
         this.regiao = regiao;
     }
 
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
 }
