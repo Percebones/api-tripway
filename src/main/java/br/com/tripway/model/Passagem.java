@@ -13,7 +13,6 @@ public class Passagem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @Column(name = "companhia_aerea", nullable = false)
     private String companhiaAerea;
 

@@ -9,49 +9,51 @@ import java.time.LocalDate;
 
 public class PacoteDTO {
 
-    private final Long id;
-    private Blob imagem_pacote;
-    private String nome_pacote;
+    private Long id;
+    private Blob imagemPacote;
+    private String nomePacote;
     private BigDecimal preco;
-    private LocalDate data_partida;
-    private LocalDate data_volta;
+    private LocalDate dataPartida;
+    private LocalDate dataVolta;
     private String destino;
     private String descricao;
     private LocalDate checkIn;
-    private int qtd_dias;
+    private int qtdDias;
     private int avaliacao;
     private Regioes regiao;
+    private Hotel hotel;
+    private PassagemDTO passagem;
 
-    private Hotel hotel;      // novo
-    private PassagemDTO passagem; // novo
+    // ✅ Construtor vazio obrigatório
+    public PacoteDTO() {
+    }
 
-    public PacoteDTO(Blob imagem_pacote, Long id, String nome_pacote, BigDecimal preco, LocalDate data_partida, LocalDate data_volta,
-                     String destino, String descricao, LocalDate checkIn, int qtd_dias, int avaliacao, Regioes regiao,
-                     Hotel hotel, PassagemDTO passagem) {  // incluiu hotel e passagem
-        this.imagem_pacote = imagem_pacote;
+    public PacoteDTO(Blob imagemPacote, Long id, String nomePacote, BigDecimal preco, LocalDate dataPartida, LocalDate dataVolta,
+                     String destino, String descricao, LocalDate checkIn, int qtdDias, int avaliacao, Regioes regiao,
+                     Hotel hotel, PassagemDTO passagem) {
+        this.imagemPacote = imagemPacote;
         this.id = id;
-        this.nome_pacote = nome_pacote;
+        this.nomePacote = nomePacote;
         this.preco = preco;
-        this.data_partida = data_partida;
-        this.data_volta = data_volta;
+        this.dataPartida = dataPartida;
+        this.dataVolta = dataVolta;
         this.destino = destino;
         this.descricao = descricao;
         this.checkIn = checkIn;
-        this.qtd_dias = qtd_dias;
+        this.qtdDias = qtdDias;
         this.avaliacao = avaliacao;
         this.regiao = regiao;
         this.hotel = hotel;
         this.passagem = passagem;
     }
-
     // getters e setters
 
-    public Blob getImagem_pacote() {
-        return imagem_pacote;
+    public Blob getImagemPacote() {
+        return imagemPacote;
     }
 
-    public void setImagem_pacote(Blob imagem_pacote) {
-        this.imagem_pacote = imagem_pacote;
+    public void setImagemPacote(Blob imagemPacote) {
+        this.imagemPacote = imagemPacote;
     }
 
     public BigDecimal getPreco() {
@@ -66,28 +68,28 @@ public class PacoteDTO {
         return id;
     }
 
-    public String getNome_pacote() {
-        return nome_pacote;
+    public String getNomePacote() {
+        return nomePacote;
     }
 
-    public void setNome_pacote(String nome_pacote) {
-        this.nome_pacote = nome_pacote;
+    public void setNomePacote(String nomePacote) {
+        this.nomePacote = nomePacote;
     }
 
-    public LocalDate getData_partida() {
-        return data_partida;
+    public LocalDate getDataPartida() {
+        return dataPartida;
     }
 
-    public void setData_partida(LocalDate data_partida) {
-        this.data_partida = data_partida;
+    public void setDataPartida(LocalDate dataPartida) {
+        this.dataPartida = dataPartida;
     }
 
-    public LocalDate getData_volta() {
-        return data_volta;
+    public LocalDate getDataVolta() {
+        return dataVolta;
     }
 
-    public void setData_volta(LocalDate data_volta) {
-        this.data_volta = data_volta;
+    public void setDataVolta(LocalDate dataVolta) {
+        this.dataVolta = dataVolta;
     }
 
     public String getDestino() {
@@ -114,12 +116,12 @@ public class PacoteDTO {
         this.checkIn = checkIn;
     }
 
-    public int getQtd_dias() {
-        return qtd_dias;
+    public int getQtdDias() {
+        return qtdDias;
     }
 
-    public void setQtd_dias(int qtd_dias) {
-        this.qtd_dias = qtd_dias;
+    public void setQtdDias(int qtdDias) {
+        this.qtdDias = qtdDias;
     }
 
     public int getAvaliacao() {

@@ -59,15 +59,15 @@ public class Pacote {
     }
 
     public Pacote(PacoteDTO pacoteDTO) {
-        this.nomePacote = pacoteDTO.getNome_pacote();
+        this.nomePacote = pacoteDTO.getNomePacote();
         this.preco = pacoteDTO.getPreco();
-        this.data_partida = pacoteDTO.getData_partida();
-        this.data_volta = pacoteDTO.getData_volta();
+        this.data_partida = pacoteDTO.getDataPartida();
+        this.data_volta = pacoteDTO.getDataVolta();
         this.destino = pacoteDTO.getDestino();
         this.descricao = pacoteDTO.getDescricao();
         this.checkIn = pacoteDTO.getCheckIn();
-        this.qtd_dias = pacoteDTO.getQtd_dias();
-        this.imagem_pacote = pacoteDTO.getImagem_pacote();
+        this.qtd_dias = pacoteDTO.getQtdDias();
+        this.imagem_pacote = pacoteDTO.getImagemPacote();
         this.avaliacao = pacoteDTO.getAvaliacao();
         this.regiao = pacoteDTO.getRegiao();
     }

@@ -19,22 +19,22 @@ public class ClienteController {
     private ServiceCliente serviceCliente;
 
     @PostMapping(path = "/cadastrar")
-    public ResponseEntity<?> adicionarCliente(@RequestBody ClienteDTO clienteDTO) throws Exception {
+    public ResponseEntity<?> adicionarCliente(@RequestBody ClienteDTO clienteDTO) {
         try {
             Cliente cliente = new Cliente(clienteDTO);
             serviceCliente.cadastroCliente(cliente);
-            return new ResponseEntity<>("Cliente criado com sucesso", HttpStatus.CREATED);
+            return new ResponseEntity<>(cliente, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>("Erro ao criar Cliente" + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
     @DeleteMapping(path = "/deletar")
-    public ResponseEntity<String> deleteCliente(@RequestBody ClienteDTO clienteDTO) throws ClienteExeptions {
+    public ResponseEntity<Object> deleteCliente(@RequestBody ClienteDTO clienteDTO) throws ClienteExeptions {
         try {
             Cliente cliente = new Cliente(clienteDTO);
             serviceCliente.deleteCliente(cliente);
-            return new ResponseEntity<>("Cliente deletado com sucesso", HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(cliente, HttpStatus.OK);
         } catch (ClienteExeptions e) {
             return new ResponseEntity<>("Erro ao deletar Cliente: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }

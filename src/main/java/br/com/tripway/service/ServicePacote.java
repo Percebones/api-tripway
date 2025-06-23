@@ -24,7 +24,7 @@ public class ServicePacote {
     }
 
     public Pacote cadastroPacote(Pacote pacote) throws PacoteExeptions {
-        System.out.println(pacote.getPreco());
+
         if (pacote.getData_partida().isAfter(pacote.getData_volta())) {
             throw new PacoteExeptions(" Data de partida precisa ser antes da data da volta");
         }

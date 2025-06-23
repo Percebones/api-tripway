@@ -16,13 +16,7 @@ public class ServiceLogin {
         this.loginREPO = loginREPO;
     }
 
-    public Optional<Cliente> login(LoginDTO loginDTO) {
-        if (loginDTO.getCPF() == null) {
-            return loginREPO.findByEmailAndSenha(loginDTO.getEmail(), loginDTO.getSenha());
-        } else {
-            return loginREPO.findByCpfAndSenha(loginDTO.getCPF(), loginDTO.getSenha());
-        }
+    public Optional<Cliente> login(String email, String pass) {
+        return loginREPO.findByEmailAndSenha(email, pass);
     }
-
-
 }
