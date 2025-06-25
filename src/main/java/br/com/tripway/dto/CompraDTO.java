@@ -11,8 +11,8 @@ public class CompraDTO {
 
     private Long id;
     private int qtd_pessoa;
-    private TipoPagamento tipo_pagamento;
-    private BigDecimal total_pago;
+    private TipoPagamento tipoPagamento;
+    private BigDecimal totalPago;
     private Cliente cliente;
     private Pacote pacote;
     private Passagem passagem;
@@ -21,20 +21,20 @@ public class CompraDTO {
     public CompraDTO(Long id, int qtd_pessoa, TipoPagamento tipo_pagamento, BigDecimal total_pago, Cliente cliente, Pacote pacote, Passagem passagem, HotelDTO hotel) {
         this.id = id;
         this.qtd_pessoa = qtd_pessoa;
-        this.tipo_pagamento = tipo_pagamento;
-        this.total_pago = total_pago;
+        this.tipoPagamento = tipo_pagamento;
+        this.totalPago = total_pago;
         this.cliente = cliente;
         this.pacote = pacote;
         this.passagem = passagem;
         this.hotel = hotel;
     }
 
-    public TipoPagamento getTipo_pagamento() {
-        return tipo_pagamento;
+    public TipoPagamento getTipoPagamento() {
+        return tipoPagamento;
     }
 
-    public void setTipo_pagamento(TipoPagamento tipo_pagamento) {
-        this.tipo_pagamento = tipo_pagamento;
+    public void setTipoPagamento(TipoPagamento tipoPagamento) {
+        this.tipoPagamento = tipoPagamento;
     }
 
     public Long getId() {
@@ -49,12 +49,12 @@ public class CompraDTO {
         this.qtd_pessoa = qtd_pessoa;
     }
 
-    public BigDecimal getTotal_pago() {
-        return total_pago;
+    public BigDecimal getTotalPago() {
+        return totalPago;
     }
 
-    public void setTotal_pago(BigDecimal total_pago) {
-        this.total_pago = total_pago;
+    public void setTotalPago(BigDecimal totalPago) {
+        this.totalPago = totalPago;
     }
 
     public Cliente getCliente() {

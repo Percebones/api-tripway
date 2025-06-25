@@ -40,8 +40,8 @@ public class Compra {
     public Compra(CompraDTO compraDTO) {
         super();
         this.qtd_pessoa = compraDTO.getQtd_pessoa();
-        this.tipo_pagamento = compraDTO.getTipo_pagamento();
-        this.total_pago = compraDTO.getTotal_pago();
+        this.tipo_pagamento = compraDTO.getTipoPagamento();
+        this.total_pago = compraDTO.getTotalPago();
         this.cliente = compraDTO.getCliente();
         this.pacote = compraDTO.getPacote();
         this.passagem = compraDTO.getPassagem();
